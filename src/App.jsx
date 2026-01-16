@@ -19,7 +19,6 @@ const App = () => {
       }
     }
   }, [authData]);
-
   function handleLogin(email, password) {
     if (email == "admin@example.com" && password == "123") {
       setUser("admin");
@@ -42,8 +41,8 @@ const App = () => {
   }
 
   // useEffect(() => {
-  //   // setLocalStorage();
-  //   // getLocalStorage();
+  //   setLocalStorage();
+  //   getLocalStorage();
   // });
 
   return (

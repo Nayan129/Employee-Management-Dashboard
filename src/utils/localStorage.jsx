@@ -1,7 +1,8 @@
 const employees = [
   {
     id: 1,
-    email: "employee1@example.com",
+    firstName: "Amit",
+    email: "e@e.com",
     password: "123",
     tasks: [
       {
@@ -35,10 +36,17 @@ const employees = [
         category: "Backend",
       },
     ],
+    taskCounts: {
+      active: 1,
+      newTask: 1,
+      completed: 0,
+      failed: 0,
+    },
   },
 
   {
     id: 2,
+    firstName: "Priya",
     email: "employee2@example.com",
     password: "123",
     tasks: [
@@ -83,10 +91,17 @@ const employees = [
         category: "Deployment",
       },
     ],
+    taskCounts: {
+      active: 0,
+      newTask: 1,
+      completed: 1,
+      failed: 0,
+    },
   },
 
   {
     id: 3,
+    firstName: "Rahul",
     email: "employee3@example.com",
     password: "123",
     tasks: [
@@ -121,10 +136,17 @@ const employees = [
         category: "Testing",
       },
     ],
+    taskCounts: {
+      active: 1,
+      newTask: 2,
+      completed: 1,
+      failed: 0,
+    },
   },
 
   {
     id: 4,
+    firstName: "Neha",
     email: "employee4@example.com",
     password: "123",
     tasks: [
@@ -169,10 +191,17 @@ const employees = [
         category: "Frontend",
       },
     ],
+    taskCounts: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 1,
+    },
   },
 
   {
     id: 5,
+    firstName: "Sanjay",
     email: "employee5@example.com",
     password: "123",
     tasks: [
@@ -207,6 +236,12 @@ const employees = [
         category: "UI",
       },
     ],
+    taskCounts: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 0,
+    },
   },
 ];
 
@@ -225,8 +260,8 @@ export const setLocalStorage = () => {
   localStorage.setItem("admin", JSON.stringify(admin));
 };
 export const getLocalStorage = () => {
-  const employees = JSON.parse(localStorage.getItem("employees"));
-  const admin = JSON.parse(localStorage.getItem("admin"));
+  const employees = JSON.parse(localStorage.getItem("employees")) || [];
+  const admin = JSON.parse(localStorage.getItem("admin")) || [];
 
   return { employees, admin };
 };

@@ -1,53 +1,28 @@
-const AllTasks = () => {
+import AcceptTask from "./AcceptTask";
+import CompletedTask from "./CompleteTask";
+import FailedTask from "./FailedTask";
+import NewTask from "./NewTask";
+
+const AllTasks = ({ data }) => {
   return (
     <div
       id="allTasks"
-      className="h-55 w-full flex justify-between p-2 rounded gap-2 flex-wrap overflow-y-auto md:overflow-x-auto md:flex-nowrap md:shrink-0"
+      className="h-55 w-full flex justify-between p-2 rounded-xl gap-2 flex-wrap overflow-y-auto md:overflow-x-auto md:flex-nowrap md:shrink-0 bg-neutral-700"
     >
-      <div className="h-full min-w-39 md:w-65 bg-red-400 rounded-lg p-2">
-        <div className="flex justify-between">
-          <h3 className="bg-red-500 px-2 rounded">High</h3>
-          <h4 className="text-sm">20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-2 font-semibold text-xl">Make a youtube video</h2>
-        <p className="text-sm mt-1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          dolores nostrum natus ipsum accusamus dolorem.
-        </p>
-      </div>
-      <div className="h-full min-w-39 md:w-65 bg-green-400 rounded-lg p-2">
-        <div className="flex justify-between">
-          <h3 className="bg-red-500 px-2 rounded">High</h3>
-          <h4 className="text-sm">20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-2 font-semibold text-xl">Make a youtube video</h2>
-        <p className="text-sm mt-1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          dolores nostrum natus ipsum accusamus dolorem.
-        </p>
-      </div>
-      <div className="h-full min-w-39 md:w-65 bg-blue-400 rounded-lg p-2">
-        <div className="flex justify-between">
-          <h3 className="bg-red-500 px-2 rounded">High</h3>
-          <h4 className="text-sm">20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-2 font-semibold text-xl">Make a youtube video</h2>
-        <p className="text-sm mt-1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          dolores nostrum natus ipsum accusamus dolorem.
-        </p>
-      </div>
-      <div className="h-full min-w-39 md:w-65 bg-yellow-400 rounded-lg p-2">
-        <div className="flex justify-between">
-          <h3 className="bg-red-500 px-2 rounded">High</h3>
-          <h4 className="text-sm">20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-2 font-semibold text-xl">Make a youtube video</h2>
-        <p className="text-sm mt-1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          dolores nostrum natus ipsum accusamus dolorem.
-        </p>
-      </div>
+      {data.tasks.map((elem) => {
+        if (elem.active) {
+          return <AcceptTask data={data} />;
+        }
+        if (elem.completion) {
+          return <CompletedTask data={data} />;
+        }
+        if (elem.newTask) {
+          return <NewTask data={data} />;
+        }
+        if (elem.failed) {
+          return <FailedTask data={data} />;
+        }
+      })}
     </div>
   );
 };

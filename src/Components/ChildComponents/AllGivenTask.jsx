@@ -1,4 +1,4 @@
-const FullTask = () => {
+const AllGivenTask = () => {
   return (
     <div
       id="allTasks"
@@ -33,4 +33,4 @@ const FullTask = () => {
   );
 };
 
-export default FullTask;
+export default AllGivenTask;

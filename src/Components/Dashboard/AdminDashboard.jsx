@@ -1,5 +1,5 @@
+import AllGivenTask from "../ChildComponents/AllGivenTask";
 import CreateTask from "../ChildComponents/CreateTask";
-import FullTask from "../ChildComponents/fullTask";
 import Header from "../ChildComponents/Header";
 
 const AdminDashboard = () => {
@@ -7,7 +7,7 @@ const AdminDashboard = () => {
     <div className="bg-black min-h-screen w-full text-white px-4 sm:px-6 py-3">
       <Header />
       <CreateTask />
-      <FullTask />
+      <AllGivenTask />
     </div>
   );
 };

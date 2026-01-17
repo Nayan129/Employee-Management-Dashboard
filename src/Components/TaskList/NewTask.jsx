@@ -8,20 +8,20 @@ const NewTask = ({ data }) => {
     >
       <div className="flex justify-between items-center">
         <h3 className="bg-white/15 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-white/10">
-          {data.tasks[0].category}
+          {data.category}
         </h3>
 
         <h4 className="text-xs sm:text-sm font-semibold text-white/80">
-          {data.tasks[0].date}
+          {data.date}
         </h4>
       </div>
 
       <h2 className="mt-3 font-bold text-lg sm:text-xl leading-snug text-white">
-        {data.tasks[0].title}
+        {data.title}
       </h2>
 
       <p className="text-sm sm:text-[15px] mt-2 text-white/85 leading-relaxed">
-        {data.tasks[0].description}
+        {data.description}
       </p>
 
       <div className="mt-4">

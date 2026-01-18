@@ -2,7 +2,7 @@
 
 import Login from "../Auth/Login";
 
-const Header = () => {
+const Header = (props) => {
   // const [userName, setUserName] = useState("");
   // if (!data) {
   //   setUserName("Admin");
@@ -12,6 +12,7 @@ const Header = () => {
 
   const logoutUser = () => {
     localStorage.setItem("loggedInUser", "");
+    props.changeUser("");
   };
 
   return (
@@ -23,12 +24,9 @@ const Header = () => {
       <button
         className="bg-red-500 px-2 py-1 rounded font-semibold cursor-pointer active:scale-95 md:px-6 md:py-2"
         onClick={() => {
-          const confirmLogout = window.confirm(
-            "are you sure want to logout!"
-          );
+          const confirmLogout = window.confirm("are you sure want to logout!");
           if (confirmLogout) {
             logoutUser();
-            window.location.reload();
           }
         }}
       >

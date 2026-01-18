@@ -1,7 +1,54 @@
-const CreateTask = () => {
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
+
+const taskTitle = () => {
+  const [userData, setUserData] = useContext(AuthContext);
+
+  // here we have to implement Two-way Binding for all inputs...
+  const [taskTitle, setTaskTitle] = useState("");
+  const [date, setDate] = useState("");
+  const [asignTo, setAsignTo] = useState("");
+  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [newTask, setNewTask] = useState({});
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    setNewTask({
+      active: false,
+      newTask: true,
+      completed: false,
+      failed: false,
+      taskTitle,
+      date,
+      category,
+      description,
+    });
+
+    const data = userData;
+
+    data.forEach((elem) => {
+      if (asignTo == elem.firstName) {
+        elem.tasks.push(newTask);
+      }
+    });
+
+    setTaskTitle("");
+    setDate("");
+    setAsignTo("");
+    setCategory("");
+    setDescription("");
+  };
+
   return (
     <div className="bg-neutral-900 mt-4 rounded">
-      <form className="flex flex-col gap-6 p-4 sm:p-6 md:flex-row md:gap-10 md:p-4">
+      <form
+        className="flex flex-col gap-6 p-4 sm:p-6 md:flex-row md:gap-10 md:p-4"
+        onSubmit={(e) => {
+          submitHandler(e);
+        }}
+      >
         {/* Left Section */}
         <div className="w-full md:w-1/2 flex flex-col gap-4">
           <div className="flex flex-col gap-2">
@@ -10,12 +57,23 @@ const CreateTask = () => {
               className="border p-2 rounded w-full"
               type="text"
               placeholder="Make a UI Design"
+              value={taskTitle}
+              onChange={(e) => {
+                setTaskTitle(e.target.value);
+              }}
             />
           </div>
 
           <div className="flex flex-col gap-2">
             <h3 className="font-semibold text-lg">Date</h3>
-            <input className="border p-2 rounded w-full" type="date" />
+            <input
+              className="border p-2 rounded w-full"
+              type="date"
+              value={date}
+              onChange={(e) => {
+                setDate(e.target.value);
+              }}
+            />
           </div>
 
           <div className="flex flex-col gap-2">
@@ -24,6 +82,10 @@ const CreateTask = () => {
               className="border p-2 rounded w-full"
               type="text"
               placeholder="Employee Name"
+              value={asignTo}
+              onChange={(e) => {
+                setAsignTo(e.target.value);
+              }}
             />
           </div>
 
@@ -33,6 +95,10 @@ const CreateTask = () => {
               className="border p-2 rounded w-full"
               type="text"
               placeholder="design, dev, etc"
+              value={category}
+              onChange={(e) => {
+                setCategory(e.target.value);
+              }}
             />
           </div>
         </div>
@@ -44,6 +110,10 @@ const CreateTask = () => {
             <textarea
               rows="10"
               className="border w-full rounded p-2"
+              value={description}
+              onChange={(e) => {
+                setDescription(e.target.value);
+              }}
             ></textarea>
           </div>
 
@@ -56,4 +126,4 @@ const CreateTask = () => {
   );
 };
 
-export default CreateTask;
+export default taskTitle;

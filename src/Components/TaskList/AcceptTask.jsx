@@ -1,4 +1,4 @@
-const AcceptTask = ({ data }) => {
+const AcceptTask = ({ data, onComplete, onFail }) => {
   return (
     <div
       className="w-[92vw] sm:w-85 md:w-90 lg:w-95 xl:w-100
@@ -26,6 +26,7 @@ const AcceptTask = ({ data }) => {
 
       <div className="flex sm:flex-row gap-3 mt-6">
         <button
+          onClick={onComplete}
           className="w-full sm:flex-1 text-white bg-emerald-500/90 py-0.5 font-bold rounded-xl
         outline-none active:scale-95 cursor-pointer "
         >
@@ -33,6 +34,7 @@ const AcceptTask = ({ data }) => {
         </button>
 
         <button
+          onClick={onFail} 
           className="w-full sm:flex-1 text-white bg-red-500/90 py-0.5 font-bold rounded-xl
         outline-none active:scale-95 cursor-pointer "
         >

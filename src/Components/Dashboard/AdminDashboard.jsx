@@ -5,7 +5,7 @@ import Header from "../ChildComponents/Header";
 const AdminDashboard = (props) => {
   return (
     <div className="bg-black min-h-screen w-full text-white px-4 sm:px-6 py-3">
-      <Header changeUser={props.changeUser} />
+      <Header changeUser={props.changeUser} data={{ firstName: "Admin" }} />
       <CreateTask />
       <AllGivenTask />
     </div>

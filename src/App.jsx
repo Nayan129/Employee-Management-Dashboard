@@ -9,7 +9,13 @@ const App = () => {
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
 
-  const [userData, setUserData] = useContext(AuthContext);
+  const [userData] = useContext(AuthContext);
+
+  useEffect(() => {
+    setLocalStorage();
+    // getLocalStorage();
+  }, []);
+
   //  here we check if user is present in our localstorage if yes getting loggedInUser here
 
   useEffect(() => {
@@ -17,7 +23,7 @@ const App = () => {
     if (loggedInUser) {
       const userData = JSON.parse(loggedInUser);
       setUser(userData.role);
-      setLoggedInUserData(userData.data);
+      setLoggedInUserData(userData.data || null);
     }
   }, []);
 
@@ -29,6 +35,7 @@ const App = () => {
       const employee = userData.find(
         (e) => e.email == email && e.password == password,
       );
+
       if (employee) {
         setUser("employee");
         setLoggedInUserData(employee);
@@ -41,11 +48,6 @@ const App = () => {
       alert("Invalid Credentials");
     }
   }
-
-  useEffect(() => {
-    setLocalStorage();
-    getLocalStorage();
-  });
 
   return (
     <div className="">

@@ -98,151 +98,6 @@ const employees = [
       failed: 1,
     },
   },
-
-  {
-    id: 3,
-    firstName: "Rahul",
-    email: "employee3@example.com",
-    password: "123",
-    tasks: [
-      {
-        active: true,
-        newTask: true,
-        completion: false,
-        failed: false,
-        title: "Create Reusable Components",
-        description: "Build Button and Modal components",
-        date: "2026-01-13",
-        category: "Frontend",
-      },
-      {
-        active: false,
-        newTask: false,
-        completion: true,
-        failed: false,
-        title: "Optimize Images",
-        description: "Compress and optimize assets",
-        date: "2026-01-09",
-        category: "Performance",
-      },
-      {
-        active: false,
-        newTask: false,
-        completion: false,
-        failed: false,
-        title: "Unit Testing",
-        description: "Write basic unit tests",
-        date: "2026-01-14",
-        category: "Testing",
-      },
-    ],
-    taskCounts: {
-      active: 1,
-      newTask: 1,
-      completed: 1,
-      failed: 0,
-    },
-  },
-
-  {
-    id: 4,
-    firstName: "Neha",
-    email: "employee4@example.com",
-    password: "123",
-    tasks: [
-      {
-        active: true,
-        newTask: true,
-        completion: false,
-        failed: false,
-        title: "Implement Search",
-        description: "Add search functionality",
-        date: "2026-01-12",
-        category: "Feature",
-      },
-      {
-        active: false,
-        newTask: false,
-        completion: true,
-        failed: false,
-        title: "Code Refactor",
-        description: "Refactor components for readability",
-        date: "2026-01-06",
-        category: "Code Quality",
-      },
-      {
-        active: false,
-        newTask: false,
-        completion: false,
-        failed: true,
-        title: "Redux Setup",
-        description: "Configure Redux store",
-        date: "2026-01-04",
-        category: "State Management",
-      },
-      {
-        active: false,
-        newTask: false,
-        completion: false,
-        failed: false,
-        title: "Pagination",
-        description: "Add pagination to list",
-        date: "2026-01-15",
-        category: "Frontend",
-      },
-    ],
-    taskCounts: {
-      active: 1,
-      newTask: 1,
-      completed: 1,
-      failed: 1,
-    },
-  },
-
-  {
-    id: 5,
-    firstName: "Sanjay",
-    email: "employee5@example.com",
-    password: "123",
-    tasks: [
-      {
-        active: true,
-        newTask: true,
-        completion: false,
-        failed: false,
-        title: "Profile Page UI",
-        description: "Design employee profile page",
-        date: "2026-01-14",
-        category: "Frontend",
-      },
-      {
-        active: false,
-        newTask: false,
-        completion: true,
-        failed: false,
-        title: "Form Validation",
-        description: "Add validations using JS",
-        date: "2026-01-08",
-        category: "Forms",
-      },
-      {
-        active: false,
-        newTask: false,
-        completion: false,
-        failed: false,
-        title: "Toast Notifications",
-        description: "Show success and error toasts",
-        date: "2026-01-16",
-        category: "UI",
-      },
-    ],
-    taskCounts: {
-      active: 1,
-      newTask: 1,
-      completed: 1,
-      failed: 0,
-    },
-  },
 ];
 
 const admin = [
@@ -253,12 +108,17 @@ const admin = [
   },
 ];
 
-// here we exporting two functions for setData in localStorage and getData From localStorage
-
 export const setLocalStorage = () => {
-  localStorage.setItem("employees", JSON.stringify(employees));
-  localStorage.setItem("admin", JSON.stringify(admin));
+  // Only set default data if not present
+  if (!localStorage.getItem("employees")) {
+    localStorage.setItem("employees", JSON.stringify(employees));
+  }
+
+  if (!localStorage.getItem("admin")) {
+    localStorage.setItem("admin", JSON.stringify(admin));
+  }
 };
+
 export const getLocalStorage = () => {
   const employees = JSON.parse(localStorage.getItem("employees")) || [];
   const admin = JSON.parse(localStorage.getItem("admin")) || [];

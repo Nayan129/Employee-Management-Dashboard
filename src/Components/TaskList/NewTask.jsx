@@ -1,4 +1,4 @@
-const NewTask = ({ data }) => {
+const NewTask = ({ data, onAccept }) => {
   return (
     <div
       className="w-[92vw] sm:w-85 md:w-90 lg:w-95 xl:w-100
@@ -26,6 +26,7 @@ const NewTask = ({ data }) => {
 
       <div className="mt-4">
         <button
+          onClick={onAccept} 
           className="w-full text-white bg-emerald-500/90 py-1.5 font-bold rounded-xl
         outline-none active:scale-95 cursor-pointer "
         >

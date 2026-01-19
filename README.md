@@ -1,185 +1,121 @@
-📌 Employee Task Management Dashboard (React + Tailwind)
+# Employee Management App (React + Context API)
 
-A simple Employee Task Management Dashboard built using React + Tailwind CSS.
-This project includes Admin & Employee authentication, task assignment tracking, and a responsive UI to manage tasks efficiently.
+A role-based Employee Management Dashboard built with **React**, **Context API**, and **Tailwind CSS**.  
+Admin can assign tasks to employees, and employees can manage tasks by accepting, completing, or failing them.  
+All updates reflect instantly across the UI and persist using **LocalStorage**.
 
-🚀 Features
-✅ Authentication System
+---
 
-Admin Login
+## 🚀 Live Demo
 
-Employee Login
+👉 https://employee-management-app-ecru.vercel.app
 
-Role-based access (admin / employee)
+---
 
-Login session stored using localStorage
+## 📌 Features
 
-👨‍💻 Employee Dashboard
+### 👨‍💼 Admin Dashboard
 
-Welcome message with employee name
+- Assign tasks to employees
+- View employee task counts (New / Active / Completed / Failed)
+- Task creation form with validation
+- Success toast on task creation
 
-Task summary cards:
+### 👨‍💻 Employee Dashboard
 
-New Tasks
+- View assigned tasks
+- Accept tasks (New → Active)
+- Mark tasks as Completed or Failed (Active → Completed/Failed)
+- Task counters update automatically in real-time
 
-Completed Tasks
+### 🔥 Real-Time Updates
 
-Active Tasks
+- State is managed globally using **React Context API**
+- Task status updates instantly reflect in:
+  - Task list cards
+  - Employee task counts section
+  - Admin dashboard counts
 
-Failed Tasks
+### 💾 Data Persistence
 
-Task list section displaying tasks in card format
+- Employee data and tasks are stored in **LocalStorage**
+- Data remains saved even after refresh/reload
 
-🗂 Task Management (Employee Tasks)
+### 📱 Responsive UI
 
-Each employee has tasks with:
+- Mobile: vertical scroll for tasks
+- Desktop: horizontal scroll for task cards
 
-active (true/false)
+---
 
-newTask (true/false)
+## 🛠 Tech Stack
 
-completion (true/false)
+- ReactJS
+- React Context API
+- Tailwind CSS
+- LocalStorage
 
-failed (true/false)
+---
 
-title
+## 📂 Project Structure
 
-description
-
-date
-
-category
-
-💾 Local Storage Integration
-
-Employees data stored in localStorage
-
-Admin data stored in localStorage
-
-Logged-in user stored in localStorage for session persistence
-
-🛠 Tech Stack
-
-React.js
-
-Tailwind CSS
-
-JavaScript
-
-LocalStorage
-
-Vite
-
-📂 Project Structure (Main Components)
 src/
-│── Components/
-│ ├── Dashboard/
-│ │ ├── EmployeeDashboard.jsx
-│ │ ├── AdminDashboard.jsx
-│ ├── TaskList/
-│ │ ├── AllTasks.jsx
-│ │ ├── AcceptTask.jsx
-│ │ ├── CompleteTask.jsx
-│ │ ├── FailedTask.jsx
-│ │ ├── NewTask.jsx
+├── Components/
 │ ├── Auth/
-│ │ ├── Login.jsx
-│
-│── Context/
-│ ├── AuthProvider.jsx
-│
-│── Utils/
-│ ├── localStorage.js
-│
-│── data/
-│ ├── employees.js
-│ ├── admin.js
-│
-│── App.jsx
-│── main.jsx
+│ ├── Dashboard/
+│ ├── ChildComponents/
+│ └── TaskList/
+├── Context/
+│ └── AuthProvider.jsx
+├── utils/
+│ └── localStorage.js
+└── App.jsx
 
-🔑 Login Credentials (Demo)
+---
+
+## ⚙️ Installation & Setup
+
+1. Clone the repo
+
+```bash
+git clone https://github.com/Nayan129/employee-management-Dashboard.git
+
+
+
+Go inside project folder
+
+cd employee-management-Dashboard
+
+
+Install dependencies
+
+npm install
+
+
+Run the project
+
+npm run dev
+
+🔑 Login Credentials
 Admin
 
 Email: admin@example.com
 
 Password: 123
 
-Employees
+Employee (Example)
 
-Email: employee1@example.com → employee5@example.com
+Email: e@e.com
 
 Password: 123
 
-⚙️ How It Works
-1️⃣ Data Setup
+📌 Learning Outcomes
 
-Created JSON-based employee and admin data
+Practiced Context API for global state management
 
-Each employee has a task array with multiple tasks
+Implemented task workflow and status updates
 
-2️⃣ LocalStorage Setup
+Worked with LocalStorage for persistent data
 
-Data is stored using helper functions:
-
-setLocalStorage()
-
-getLocalStorage()
-
-3️⃣ Login Flow
-
-Admin login checks fixed credentials
-
-Employee login matches email/password using .find()
-
-Role is stored in localStorage as:
-
-{ role: "admin" }
-or
-{ role: "employee" }
-
-4️⃣ Task Rendering
-
-Tasks are shown in different UI cards based on task status:
-
-New Task Card
-
-Active Task Card
-
-Completed Task Card
-
-Failed Task Card
-
-🧠 Learnings From This Project
-
-React component structure & props handling
-
-Role-based login logic
-
-Storing and reading data from LocalStorage
-
-Conditional rendering using .map() and status flags
-
-Building reusable UI layouts using Tailwind CSS
-
-Debugging common errors like:
-
-Cannot read properties of undefined
-
-Wrong object key usage (employee vs employees)
-
-Missing props in components
-
-📌 Future Improvements
-
-Add task update functionality (Mark Completed / Failed)
-
-Add Admin task assignment UI
-
-Use a backend API instead of LocalStorage
-
-Add better state management (Context/Redux)
-
-Add proper filtering tabs for tasks
-
-Improve UI responsiveness for large screens
+Built responsive UI using Tailwind CSS
+```

@@ -13,7 +13,7 @@ All updates reflect instantly across the UI and persist using **LocalStorage**.
 ---
 ## 🔐 Demo Access (Frontend Simulation)
 
-## Note: This is a frontend-only demo. No real backend authentication is implemented.
+## Note: This is a frontend-only project. Authentication and role handling are simulated for demonstration purposes.
 
 This project simulates role-based authentication on the frontend.
 

@@ -11,6 +11,20 @@ All updates reflect instantly across the UI and persist using **LocalStorage**.
 👉 https://employee-management-app-ecru.vercel.app
 
 ---
+## 🔐 Demo Access (Frontend Simulation)
+
+## Note: This is a frontend-only demo. No real backend authentication is implemented.
+
+This project simulates role-based authentication on the frontend.
+
+Admin Login  
+Username: admin  
+Password: admin123  
+
+Employee Login  
+Username: employee  
+Password: employee123  
+
 
 ## 📌 Features
 
@@ -97,17 +111,7 @@ Run the project
 npm run dev
 
 🔑 Login Credentials
-Admin
 
-Email: admin@example.com
-
-Password: 123
-
-Employee (Example)
-
-Email: e@e.com
-
-Password: 123
 
 📌 Learning Outcomes
 

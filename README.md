@@ -18,12 +18,12 @@ All updates reflect instantly across the UI and persist using **LocalStorage**.
 This project simulates role-based authentication on the frontend.
 
 Admin Login  
-Username: admin  
-Password: admin123  
+Username: admin@example.com  
+Password: 123  
 
 Employee Login  
-Username: employee  
-Password: employee123  
+Username: e@e.com  
+Password: 123  
 
 
 ## 📌 Features
